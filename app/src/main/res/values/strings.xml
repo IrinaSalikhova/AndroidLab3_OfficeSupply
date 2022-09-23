@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Office supply app</string>
+    <string name="page1_name">Order page</string>
+    <string name="page2_name">Bill page</string>
+
+    <string name="thing1">Pens ($1)</string>
+    <string name="thing2">Notebooks ($3)</string>
+
+    <string name="empty">\u0020enter amount\u0020</string>
+
+    <string name="total">\u0020\u0020\u0020\u0020Total to pay\u0020\u0020\u0020\u0020</string>
+    <string name="currency">\u0020dollars</string>
+    <string name="currency_symbol">$</string>
+
+    <string name="mistake_message">Please enter your order</string>
+    <string name="clear_message">Order cleared</string>
+    <string name="complete_message">Order submitted</string>
+    <string name="bill_message">Show a bill</string>
+
+    <string name="clear_button">\u0020CLEAR\u0020</string>
+    <string name="submit_button">SUBMIT</string>
+</resources>
