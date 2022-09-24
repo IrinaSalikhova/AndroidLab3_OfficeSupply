@@ -41,26 +41,27 @@ public class MainActivity extends AppCompatActivity {
         EditText thing2Amount = findViewById(R.id.thing2Amount);
 
         try {
-            int thing1 = 0;
-            int thing2 = 0;
-            if (thing1Amount.getText().toString() != null) {
-                thing1 = Integer.parseInt(thing1Amount.getText().toString());
+            if (thing1Amount.getText().toString().isEmpty() & thing2Amount.getText().toString().isEmpty()) {
+                throw new Exception();
             }
-            if (thing2Amount.getText().toString() != null) {
-                thing2 = Integer.parseInt(thing2Amount.getText().toString());
+            if (thing1Amount.getText().toString().isEmpty()) {
+               thing1Amount.setText("0");
             }
+            int thing1 = Integer.parseInt(thing1Amount.getText().toString());
+            if (thing2Amount.getText().toString().isEmpty()) {
+                thing2Amount.setText("0");
+            }
+            int thing2 = Integer.parseInt(thing2Amount.getText().toString());
             int total = thing1 + thing2*3;
             String totalString = new String(total + getString(R.string.currency));
             totalPrice.setText(totalString);
             String completeMessage = new String(getString(R.string.complete_message));
             String billMessage = new String(getString(R.string.bill_message));
             Intent nextPage = new Intent(this, MainActivity2.class);
-            int finalThing = thing1;
-            int finalThing1 = thing2;
             Snackbar snackbar = Snackbar.make(view, completeMessage, Snackbar.LENGTH_LONG).setAction(billMessage, click ->
             {
-                nextPage.putExtra("thing1", finalThing);
-                nextPage.putExtra("thing2", finalThing1);
+                nextPage.putExtra("thing1", thing1);
+                nextPage.putExtra("thing2", thing2);
                 nextPage.putExtra("total", total );
                 startActivity(nextPage);    //go to MainActivity2.java
             });
@@ -81,20 +82,19 @@ public class MainActivity extends AppCompatActivity {
         EditText thing2Amount = findViewById(R.id.thing2Amount);
 
         try {
-            int try1 = 0;
-            int try2 =0;
-            if (thing1Amount != null) {
-                try1 = Integer.parseInt(thing1Amount.getText().toString());
-                thing1Amount.getText().clear();
+            if (thing1Amount.getText().toString().isEmpty()) {
+                thing1Amount.setText("0");
             }
-            if (thing2Amount != null) {
-                try2 = Integer.parseInt(thing2Amount.getText().toString());
-                thing2Amount.getText().clear();
+            int saveThing1 = Integer.parseInt(thing1Amount.getText().toString());
+            if (thing2Amount.getText().toString().isEmpty()) {
+                thing2Amount.setText("0");
             }
-            int saveThing1 = try1;
-            int saveThing2 = try2;
-            String saveTotal = new String (totalPrice.getText().toString());
+            int saveThing2 = Integer.parseInt(thing2Amount.getText().toString());
 
+            thing1Amount.getText().clear();
+            thing2Amount.getText().clear();
+
+            String saveTotal = new String (totalPrice.getText().toString());
             totalPrice.setText(null);
             String messageString = new String(getString(R.string.clear_message));
             Snackbar snackbar = Snackbar.make(view, messageString, Snackbar.LENGTH_LONG).setAction("Undo", click -> restore(saveThing1,saveThing2,saveTotal) );

@@ -3,12 +3,17 @@
     <string name="page1_name">Order page</string>
     <string name="page2_name">Bill page</string>
 
-    <string name="thing1">Pens ($1)</string>
-    <string name="thing2">Notebooks ($3)</string>
+    <string name="thing1">Pens</string>
+    <string name="thing2">Notebooks</string>
+    <string name="price1">$1</string>
+    <string name="price2">$3</string>
+    <string name="thing1price">Pens ($1)</string>
+    <string name="thing2price">Notebooks ($3)</string>
 
     <string name="empty">\u0020enter amount\u0020</string>
 
-    <string name="total">\u0020\u0020\u0020\u0020Total to pay\u0020\u0020\u0020\u0020</string>
+    <string name="total1">\u0020\u0020\u0020\u0020Total to pay\u0020\u0020\u0020\u0020</string>
+    <string name="total2">\u0020Total to pay\u0020</string>
     <string name="currency">\u0020dollars</string>
     <string name="currency_symbol">$</string>
 
@@ -19,4 +24,10 @@
 
     <string name="clear_button">\u0020CLEAR\u0020</string>
     <string name="submit_button">SUBMIT</string>
+    <string name="close_button">\u0020\u0020CLOSE\u0020\u0020</string>
+
+    <string name="order">\u0020Order\u0020</string>
+    <string name="price">\u0020Price\u0020</string>
+    <string name="amount">\u0020Amount\u0020</string>
+    <string name="total3">\u0020Total\u0020</string>
 </resources>
