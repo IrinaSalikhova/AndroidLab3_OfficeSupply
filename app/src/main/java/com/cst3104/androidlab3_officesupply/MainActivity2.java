@@ -14,7 +14,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        TextView thing1amount = findViewById(R.id.thing1amount);
+        TextView thing1amount = findViewById(R.id.thing1amount); // to show all values placed in by the user such as amount of items and total prices
         TextView thing2amount = findViewById(R.id.thing2amount);
         TextView thing1total = findViewById(R.id.thing1total);
         TextView thing2total = findViewById(R.id.thing2total);
@@ -26,7 +26,7 @@ public class MainActivity2 extends AppCompatActivity {
         int thing2price = thing2*3;
         int total = intent.getIntExtra("total", 0);
 
-        thing1amount.setText(thing1+"");
+        thing1amount.setText(thing1+""); // to print the a receipt
         thing2amount.setText(thing2+"");
         thing1total.setText(getString(R.string.currency_symbol)+thing1);
         thing2total.setText(getString(R.string.currency_symbol)+thing2price);
@@ -35,7 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         Button closeButton = findViewById(R.id.closeButton);
         closeButton.setOnClickListener(click -> {
-            finish();
+            finish(); // to close the receipt menu an let you go back to the order page
                 });
     }
 }
