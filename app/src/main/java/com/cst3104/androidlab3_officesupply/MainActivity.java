@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button clearButton = findViewById(R.id.clearButton);
+        Button clearButton = findViewById(R.id.clearButton); // declare the button ids
         Button submitButton = findViewById(R.id.submitButton);
 
         clearButton.setOnClickListener(view -> {
@@ -42,21 +42,21 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             if (thing1Amount.getText().toString().isEmpty() & thing2Amount.getText().toString().isEmpty()) {
-                throw new Exception();
+                throw new Exception(); // to catch when the user would not input anything or a foreign char
             }
             if (thing1Amount.getText().toString().isEmpty()) {
-               thing1Amount.setText("0");
+               thing1Amount.setText("0"); // reset thing1Amount to 0 if the box is empty
             }
             int thing1 = Integer.parseInt(thing1Amount.getText().toString());
             if (thing2Amount.getText().toString().isEmpty()) {
-                thing2Amount.setText("0");
+                thing2Amount.setText("0"); // reset thing2Amount to 0 if the box is empty
             }
             int thing2 = Integer.parseInt(thing2Amount.getText().toString());
-            int total = thing1 + thing2*3;
+            int total = thing1 + thing2*3;  // the calculation for for if the user wants to buy multiple items
             String totalString = new String(total + getString(R.string.currency));
-            totalPrice.setText(totalString);
+            totalPrice.setText(totalString); // to display the final price
             String completeMessage = new String(getString(R.string.complete_message));
-            String billMessage = new String(getString(R.string.bill_message));
+            String billMessage = new String(getString(R.string.bill_message)); // shows the promt to show the bill on the MainActivity2
             Intent nextPage = new Intent(this, MainActivity2.class);
             Snackbar snackbar = Snackbar.make(view, completeMessage, Snackbar.LENGTH_LONG).setAction(billMessage, click ->
             {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             });
             snackbar.show();
 
-        } catch (Exception ex) {
+        } catch (Exception ex) { // to catch user input errors
             String messageString = new String(getString(R.string.mistake_message));
             Snackbar snackbar = Snackbar.make(view, messageString, Snackbar.LENGTH_LONG);
             snackbar.show();
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             if (thing1Amount.getText().toString().isEmpty()) {
-                thing1Amount.setText("0");
+                thing1Amount.setText("0"); // to fix a glitch where the on the order page the number of products entered would not clear
             }
             int saveThing1 = Integer.parseInt(thing1Amount.getText().toString());
             if (thing2Amount.getText().toString().isEmpty()) {
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             snackbar.show();
 
 
-        } catch (Exception ex) {
+        } catch (Exception ex) { // to display a message when the user would not input anything or a foreign char
             String messageString = new String(getString(R.string.mistake_message));
             Snackbar snackbar = Snackbar.make(view, messageString, Snackbar.LENGTH_LONG);
             snackbar.show();
